@@ -1,16 +1,19 @@
 import PropTypes from 'prop-types';
+import styles from "./Statistics.module.css"
+
+const colors = ['pink', 'antiquewhite', 'wheat', 'rosybrown', 'indianred'];
 
 export const Statistics = ({ title, stats }) => {
   return (
-    <section class="statistics">
-      {{ title } && <h2 class="title">{title}</h2>}
+    <section class={styles.statistics}>
+      {{ title } && <h2 class={styles.title}>{title}</h2>}
 
-      <ul class="stat-list">
-        {stats.map(({ id, label, percentage }) => {
+      <ul class={styles.statsList}>
+        {stats.map(({ id, label, percentage }, index) => {
           return (
-            <li class="item" key={id}>
-              <span class="label">{label}</span>
-              <span class="percentage">{percentage}</span>
+            <li class={styles.item} key={id} style={{ background: colors[index] }}>
+              <span class={styles.label}>{label}</span>
+              <span class="percentage">{percentage}%</span>
             </li>
           );
         })}
