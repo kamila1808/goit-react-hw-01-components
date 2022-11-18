@@ -5,15 +5,15 @@ const colors = ['pink', 'antiquewhite', 'wheat', 'rosybrown', 'indianred'];
 
 export const Statistics = ({ title, stats }) => {
   return (
-    <section class={styles.statistics}>
-      {{ title } && <h2 class={styles.title}>{title}</h2>}
+    <section className={styles.statistics}>
+      {{ title } && <h2 className={styles.title}>{title}</h2>}
 
-      <ul class={styles.statsList}>
+      <ul className={styles.statsList}>
         {stats.map(({ id, label, percentage }, index) => {
           return (
-            <li class={styles.item} key={id} style={{ background: colors[index] }}>
-              <span class={styles.label}>{label}</span>
-              <span class="percentage">{percentage}%</span>
+            <li className={styles.item} key={id} style={{ background: colors[index] }}>
+              <span className={styles.label}>{label}</span>
+              <span>{percentage}%</span>
             </li>
           );
         })}
