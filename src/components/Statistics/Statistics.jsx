@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import styles from "./Statistics.module.css"
 
-const colors = ['pink', 'antiquewhite', 'wheat', 'rosybrown', 'indianred'];
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
 
 export const Statistics = ({ title, stats }) => {
   return (
@@ -9,11 +11,11 @@ export const Statistics = ({ title, stats }) => {
       {{ title } && <h2 className={styles.title}>{title}</h2>}
 
       <ul className={styles.statsList}>
-        {stats.map(({ id, label, percentage }, index) => {
+        {stats.map(({ id, label, percentage }) => {
           return (
-            <li className={styles.item} key={id} style={{ background: colors[index] }}>
+            <li className={styles.item} key={id} style={{backgroundColor:getRandomHexColor()}}>
               <span className={styles.label}>{label}</span>
-              <span>{percentage}%</span>
+              <span className={styles.percentage}>{percentage}%</span>
             </li>
           );
         })}
